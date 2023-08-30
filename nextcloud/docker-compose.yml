@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb
+    container_name: nextcloud-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: user
+    volumes:
+      - ./db-data:/var/lib/mysql
+
+  app:
+    image: nextcloud
+    container_name: nextcloud-app
+    restart: always
+    environment:
+      - NEXTCLOUd_TRUSTED_DOMAINS=domain.com
+    ports:
+      - "80:80"
+    volumes:
+      - ./config:/var/www/html/config

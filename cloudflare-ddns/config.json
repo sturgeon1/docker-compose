@@ -1,0 +1,68 @@
+{
+  "cloudflare": [
+    {
+      "authentication": {
+        "api_token": "api_token",
+        "api_key": {
+          "api_key": "api_key_here",
+          "account_email": "your_email_here"
+        }
+      },
+      "zone_id": "zone_id",
+      "subdomains": [
+        {
+          "name": "domaina",
+          "proxied": true
+        },
+        {
+          "name": "domainb",
+          "proxied": true
+        },
+	{
+	  "name": "domainc",
+	  "proxied": true
+	},
+	{
+	  "name": "domaind",
+	  "proxied": true
+	},
+	{
+	  "name": "domaine",
+	  "proxied": false
+	},
+	{
+	  "name": "domainf",
+	  "proxied": false
+	},
+	{
+	  "name": "domaing",
+	  "proxied": true
+	},
+	{
+	  "name": "domainh",
+	  "proxied": false
+	},
+	{
+	  "name": "domaini",
+	  "proxied": false
+	},
+	{
+	  "name": "domainj",
+	  "proxied": true
+	},
+	{
+	  "name": "domaink",
+	  "proxied": true
+	},
+	{
+	  "name": "domainl",
+	  "proxied": true
+	}
+      ]
+    }
+  ],
+  "a": true,
+  "aaaa": true,
+  "purgeUnknownRecords": false,
+  "ttl": 300
+}

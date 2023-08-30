@@ -1,0 +1,29 @@
+---
+version: "2"
+services:
+  db_recipes:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    restart: always
+  recipes:
+    image: vabene1111/recipes
+    container_name: tandoor
+    ports:
+      - 8080:8080
+    volumes:
+      - ./staticfiles:/opt/recipes/staticfiles
+      - ./mediafiles:/opt/recipes/mediafiles
+    environment:
+      - SECRET_KEY=key
+      - DB_ENGINE=django.db.backends.postgresql
+      - POSTGRES_HOST=db_recipes
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    restart: always
+    depends_on:
+      - db_recipes

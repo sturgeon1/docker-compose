@@ -1,0 +1,24 @@
+version: "2.1"
+services:
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=timezone
+      - SERVERURL=domain.com # domain optional, public IP is required at least
+      - SERVERPORT=53800
+      - PEERS=2 # number of peers
+      - PEERDNS=auto #optional
+    volumes:
+      - /lib/config:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 53800:53800/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
